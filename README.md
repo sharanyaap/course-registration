@@ -1,2 +1,2 @@
-# audit-service
-It is used to store audit events and generate audit reports
+# course-registration
+course-registration backend
