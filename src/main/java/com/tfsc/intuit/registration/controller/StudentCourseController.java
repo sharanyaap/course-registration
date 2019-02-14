@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by sharanya.p on 3/24/2018.
@@ -19,6 +21,8 @@ import java.util.List;
 @RequestMapping("/studentCourses")
 @Api(value = "studentCourses", description = "The APIs implemented herein deal with operations on studentCourse(s)")
 public class StudentCourseController {
+
+    Logger logger = Logger.getLogger(StudentCourseController.class.getName());
 
     @Autowired
     private StudentCourseService studentCourseService;
@@ -68,8 +72,8 @@ public class StudentCourseController {
         try {
             studentCourseService.update(studentCourseDto);
             return true;
-        }catch (Exception e){
-            System.out.println(e);
+        } catch (Exception e) {
+            logger.log(Level.SEVERE, e.getMessage());
             return false;
         }
     }
